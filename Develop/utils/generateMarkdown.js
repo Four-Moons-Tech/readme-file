@@ -36,8 +36,10 @@ function renderLicenseBadge(license) {
     badge === '[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)'
   } else 
     badge = []
+
 }
-renderLicenseBadge()
+return badge
+//renderLicenseBadge(license)
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string

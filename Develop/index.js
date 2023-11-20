@@ -116,6 +116,7 @@ inquirer
       1. Questions
 
       ## Installation
+    
       ##Usage
       ## License
       ${licenseChoice}
