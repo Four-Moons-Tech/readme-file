@@ -1,10 +1,11 @@
 // TODO: 
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // TODO: Create an array of questions for user input
-const questions = ['projectTitle', 'description',];
+// const questions = ['projectTitle', 'description',];
 
 inquirer
     .prompt([
@@ -105,10 +106,6 @@ inquirer
         },
         
 
-
-        //   [![License]('https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-
     ])
     .then((answers) => {
         
@@ -125,41 +122,44 @@ inquirer
         const { contributing } = answers;
         const {installation} = answers;
         const {usage } = answers;
+        // const badge = renderLicenseBadge(licenseChoice);
+        // console.log(badge)
         const README = `
-     # ${projectTitle}
+# ${projectTitle} 
+ 
 
-    ## Description
+## Description
      
-    * ${description} 
-    * ${motivation}
-    * ${whyBuilt}
-    * ${learned}
-    * ${problemSolve}
+* ${description} 
+* _What motivates me to do this project?_ ${motivation}
+* _Why did I build this application?_ ${whyBuilt}
+* _What did I learn?_ ${learned}
+* _What problem does my application solve?_ ${problemSolve}
       
 
-    ## Table of Contents
-      
-    1. [Installation](${Installation})
-    1. Usage
-    1. License
-    1. Contributing
-    1. Tests
-    1. Questions
-
-      ## Installation
-        ${installation}
+## Table of Contents
     
-      ## Usage
-        ${usage}
-      ## License
-        ${licenseChoice}
-      ## Contributing
-        ${contributing}
-      ## Tests
-        ${test}
-      ## Questions
-       >[You can see my GitHub account here] (https://github.com/${userName} "See my other projects")
-       >You can contact me via email with any questions: ${email}.
+1. [Installation](#installation)
+1. [Usage](#usage)
+1. [License](#license)
+1. [Contributing](#contributing)
+1. [Tests](#tests)
+1. [Questions](#tests)
+
+## Installation
+${installation}
+
+## Usage
+${usage}
+## License
+${licenseChoice}
+## Contributing
+${contributing}
+## Tests
+${test}
+## Questions
+>[You can see my GitHub account here](https://github.com/${userName} "See my other projects")
+>You can contact me via email with any questions: ${email}.
 
 
 
@@ -171,9 +171,6 @@ inquirer
         console.log(answers)
     })
 
-    // TODO: Create a function to write README file
-    //function writeToFile(fileName, data) {}
-
 
     .catch((error) => {
         if (error.isTtyError) {
@@ -183,8 +180,3 @@ inquirer
         }
     });
 
-// TODO: Create a function to initialize app
-//function init() {}
-
-// Function call to initialize app
-//init();
