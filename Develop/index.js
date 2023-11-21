@@ -43,17 +43,18 @@ inquirer
 
         },
         {
-            name: 'email',
+            name: 'installation',
             type: 'input',
-            message: 'What is your email?',
+            message: 'How do you install the application?',
 
         },
         {
-            name: 'userName',
+            name: 'usage',
             type: 'input',
-            message: 'What is your GitHub username?',
+            message: 'How do you use the application?',
 
         },
+        
         {
             type: "list",
             name: "licenseChoice",
@@ -77,7 +78,33 @@ inquirer
             "SIL Open Font License 1.1",
             "The zlib/libpng License"
         ]
-          }
+        },
+        {
+            name: 'contributing',
+            type: 'input',
+            message: 'Who contributed to your project?',
+
+        },
+        {
+            name: 'test',
+            type: 'input',
+            message: 'How do you test your application?',
+
+        },
+          {
+            name: 'email',
+            type: 'input',
+            message: 'What is your email?',
+
+        },
+        {
+            name: 'userName',
+            type: 'input',
+            message: 'What is your GitHub username?',
+
+        },
+        
+
 
         //   [![License]('https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -94,34 +121,42 @@ inquirer
         const { email } = answers;
         const { userName } = answers;
         const {licenseChoice } = answers;
-        //const {learned } = answers;
+        const {test } = answers;
+        const { contributing } = answers;
+        const {installation} = answers;
+        const {usage } = answers;
         const README = `
      # ${projectTitle}
-     ## Description
+
+    ## Description
      
-      * ${description} 
-       * ${motivation}
-       * ${whyBuilt}
-       * ${learned}
-      * ${problemSolve}
+    * ${description} 
+    * ${motivation}
+    * ${whyBuilt}
+    * ${learned}
+    * ${problemSolve}
       
 
-      ##Table of Contents
+    ## Table of Contents
       
-      1. Installation
-      1. Usage
-      1. License
-      1. Contributing
-      1. Tests
-      1. Questions
+    1. [Installation](${Installation})
+    1. Usage
+    1. License
+    1. Contributing
+    1. Tests
+    1. Questions
 
       ## Installation
+        ${installation}
     
-      ##Usage
+      ## Usage
+        ${usage}
       ## License
-      ${licenseChoice}
+        ${licenseChoice}
       ## Contributing
+        ${contributing}
       ## Tests
+        ${test}
       ## Questions
        >[You can see my GitHub account here] (https://github.com/${userName} "See my other projects")
        >You can contact me via email with any questions: ${email}.
