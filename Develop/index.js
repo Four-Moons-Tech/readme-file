@@ -1,11 +1,9 @@
 // TODO: 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const renderLicenseBadge = require('./utils/generateMarkdown');
 
 
-// TODO: Create an array of questions for user input
-// const questions = ['projectTitle', 'description',];
 
 inquirer
     .prompt([
@@ -122,10 +120,12 @@ inquirer
         const { contributing } = answers;
         const {installation} = answers;
         const {usage } = answers;
-        // const badge = renderLicenseBadge(licenseChoice);
+        const badge = renderLicenseBadge(licenseChoice)
         // console.log(badge)
         const README = `
-# ${projectTitle} 
+# ${projectTitle} ${badge}
+
+
  
 
 ## Description
